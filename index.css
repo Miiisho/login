@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Tajawal", "Inter", "Segoe UI", sans-serif;
+  --font-mono: "Courier New", monospace;
+
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #10b981;
+  --color-accent: #f59e0b;
+  --color-danger: #ef4444;
+
+  --color-ink: #1f2937;
+  --color-surface: #f3f4f6;
+  --color-line: #e5e7eb;
+
+  --color-status-active: #10b981;
+  --color-status-progress: #3b82f6;
+  --color-status-pending: #f59e0b;
+  --color-status-danger: #ef4444;
+  --color-status-paused: #9ca3af;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+.kanban-column.drag-over {
+  background: rgba(59, 130, 246, 0.08);
+  outline: 2px dashed var(--color-primary);
+  outline-offset: -4px;
+}
+
+/* ---- Interface customization (Settings) ---- */
+/* Dark mode via full-page inversion; media re-inverted to stay natural */
+html.dark-mode {
+  filter: invert(0.92) hue-rotate(180deg);
+  background: #0d1117;
+}
+html.dark-mode img,
+html.dark-mode video {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Accent color themes override the default blue accent */
+html.theme-emerald .bg-blue-500 { background-color: #10b981 !important; }
+html.theme-emerald .hover\:bg-blue-600:hover { background-color: #059669 !important; }
+html.theme-emerald .text-blue-600 { color: #059669 !important; }
+html.theme-emerald .text-blue-500 { color: #10b981 !important; }
+
+html.theme-violet .bg-blue-500 { background-color: #8b5cf6 !important; }
+html.theme-violet .hover\:bg-blue-600:hover { background-color: #7c3aed !important; }
+html.theme-violet .text-blue-600 { color: #7c3aed !important; }
+html.theme-violet .text-blue-500 { color: #8b5cf6 !important; }
